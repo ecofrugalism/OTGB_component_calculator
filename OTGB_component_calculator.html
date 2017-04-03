@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>OTGB component calculator</title>
+	<meta charset="utf-8" />
+	<style type="text/css">
+    body {
+		font: 12pt arial; margin: 10;
+		color: #000000;
+		background-color: #ffffff;
+	}
+    h1 {
+		margin: 0; padding: 8px; font-size: 16pt;
+		}
+    h2 {
+		font-size: 14pt;
+		}
+    a:hover {
+		text-decoration: none;
+		}
+    #header {
+	background: #ffffff;
+	height: 40px;
+	text-align: center;
+	}
+	content {
+	margin: 40px 80px;
+	text-align: justify;
+	}
+
+    .input {width:100px; height:30px; display:inline-block; border: 1px solid #DDDDDD; font-size:24px; font-weight:bold; color:#666666;text-align:right;}
+
+   </style>
+</head>
+<body>
+
+<div id="header">
+<h1>Off-the-grid building component calculator</h1>
+</div>
+
+<!-- Start content -->
+<div id="content">
+
+<h2>What is the OTGB component calculator about?</h2>
+<p>The intent of this page is to allow you to calculate the specifics of the components you need to live (more) off-the-grid. Once you know the exact components you need for your requirements, you can look through <a href="http://aeprojects.eu.pn/OTGL_html_version/public_html/index.html">websites that list manufacturers of these products</a>. The focus of this page is not to help you to get completely off-the-grid, but rather just get "more" self-sufficient and able to better cope with power outtages, ... This is something you can achieve yourself, quite easily, whereas becoming entirely self-sufficient tends to require the help of a specialised company.</p>
+
+<h2>What are the average energy requirements for a standard family ?</h2>
+<p>The <a href="https://en.wikipedia.org/wiki/Domestic_energy_consumption">average energy requirements</a> are a good baseline to help you make sense of your requirements, and so get an understanding of what components you need to become (more) self-sufficient. Here is the table:</p>
+
+<p>Space heating: 12000 KWh (=60%)<br />
+Hot water: 3000 Kwh (=15%<br />
+Cooling and refrigeration: 1200 Kwh (=6%)<br />
+Lighting: 1200 Kwh (=6%)<br />
+Washing and drying: 1000 Kwh (=5%)<br />
+Cooking: 1000 Kwh (=5%)<br />
+Miscellaneous electric load: 600 Kwh (=3%)<br />
+Total: 20000 Kwh</p>
+
+<h2>Energy storage using batteries</h2>
+<p>If you use batteries to become self-sufficient on energy, you'll need to calculate how much of them you need and what capacity they need to have (in ampère-hours -Ah-). You'll best use a battery type that both lasts a long time and is also easily recyclable (at the end of its service life). Examples of such batteries are <a href="http://www.offthegridnews.com/grid-threats/the-absolute-best-batteries-for-off-grid-energy-systems/">industrial flooded lead-acid (FLA) batteries</a> (these have 15 to 20 years of service life) and nickel-iron batteries (these have a service life of at least 50 years). The first type usually come in voltages of 2, 4, 6 or 12V and can easily have say 4000 Ah whereas the latter type comes in a voltage of say 1,2V per battery and can have 10 to 1000 Ah.
+To determine the voltage you need, just look at the appliance you'll need/use it for (as making all the appliances in your entire house able to be powered by batteries will probably be too expensive, difficult to do and unnecessary -so just make the essentials like lights, ... battery powered-). Then, divide this voltage by the amount of voltage per battery. Pick a correct Ah rate for this battery depending on your requirements (the time you'll run the appliance before it needs to be recharged). Don't forget that you can't discharge a battery completely, so look up to how much you can discharge it (i.e. to 20% State of Charge, ...) and calculate this in. Finally, keep also the time needed to recharge the battery in mind, as this may also be important to correctly dimension your system. Longer charge times (by using a lower C-rate value) are to be preferred, as the lower the value the C-rate is, the more energy efficient the charge process will be and the longer you battery's life span will be. We should also try to avoid needing to use any DC-DC converters, or even any inverters or transformers. This because these components increase the expense of the system greatly, and even more important: they only allow to pass/convert a certain amount of power (even stepping up/down the power by 12 or 24V -at a small amount of amps- tends to be a huge problem in practice). So avoid their use (by for instance not using appliances that are meant to be run on the 230V AC electricity grid). Rather, just use purpose-build 12 or 24 DC appliances. In certain situations, you could use a computer power supply to still be able to use some 230V AC appliances, but this trick only works with just a few appliances. Do note that if you make your system like this, you will be able to charge your battery from the mains electricity grid (as most chargers have build-in power conversion -similar like a PC power supply-) but you won't be able to feed electricity back to the mains electricity grid (=net metering/net purchase and sale). So it will be less ecologic, but the advantage will be that it is something you can easily make yourself, at a low cost.</p>
+
+<p><input type="text" id="esb1i1" class="input" value="0" maxlength="4">A appliance / <input type="text" id="esb1i2" class="input" value="0" maxlength="4" maxlength="4">A per battery = <input type="text" id="esb1i3" class="input" value="0" maxlength="4"> batteries needed</p>
+
+<p><input type="text" id="esb2i1" class="input" value="0" maxlength="4">A appliance X <input type="text" id="esb2i2" class="input" value="0" maxlength="4" maxlength="4">hr appliance run time before recharge = <input type="text" id="esb2i3" class="input" value="0" maxlength="4">Ah battery capacity <br />+ <input type="text" id="esb2i4" class="input" value="0" maxlength="4">Ah (<input type="text" id="esb2i5" class="input" value="0" maxlength="4">% capacity needs to remain as it can't be discharged completely) = <input type="text" id="esb2i6" class="input" value="0" maxlength="4"> Ah battery capacity required for appliance</p>
+
+<p><input type="text" id="esb3i1" class="input" value="0" maxlength="4">Ah battery capacity required for appliance / <input type="text" id="esb3i2" class="input" value="0" maxlength="4"> batteries of <input type="text" id="esb3i3" class="input" value="0" maxlength="4">Ah = <input type="text" id="esb3i4" class="input" value="0" maxlength="4">Ah capacity needed per battery</p>
+
+<p><b>Battery charge time calculator</b></p>
+<p><input type="text" id="btc1i1" class="input" value="0" maxlength="4">Ah battery X <input type="text" id="btc1i2" class="input" value="0" maxlength="4">C (being the optimal charging C-rate for the battery type) = <input type="text" id="btc1i3" class="input" value="0" maxlength="4">A charger (being the optimal charger) <br />It will take the <input type="text" id="btc1i4" class="input" value="0" maxlength="4">A charger <input type="text" id="btc1i5" class="input" value="0" maxlength="4">hours to recharge the battery if it's completely discharged</p>
+
+<h2>Central heating components</h2>
+<p>As you <a href="http://aeprojects.eu.pn/OTGLfaq.html">probably already read</a>, your central heating system consumes by far the most energy (and generates the most emissions if you still use a fossil fuel for this). The emissions are something that can be easily solved (by just switching to a biofuel -i.e. biogas, wood, ...-). However, if you use gas and you also want your system to be able to work without being dependant on the gas grid, it gets a bit more tricky. You'll then need to calculate out the size of the gas tanks you need. This is something that is easily calculatable from your yearly consumption of m³ of gas:<br/ >
+Just divide this number by 12 or 52, depending on whether you want to store a month or a week's supply of gas and then input this number below:</p>
+
+<p><input type="text" id="chc1i1" class="input" value="0" maxlength="4">m³ gas X 1000 liter/m³ gas = <input type="text" id="chc1i2" class="input" value="0" maxlength="4"> liter gas tank needed</p>
+
+<p>If you also use this gas to also heat your water, you'll use 25% of this amount for heating your water, and 75% for space heating (see the ratio between heating and hot water in the table above).</p>
+
+<p>The size (kWh rating) of the furnace of the central heating system is normally determined based on the outcome of a <a href="http://www.builditsolar.com/References/Calculators/HeatLoss/HeatLoss.htm">heat loss calculation</a>. However, these days, the furnaces all use start/stop heating (by means of electric ignition) rather than keeping a pilot light on at all time, so you won't consume more fuel if it's oversized (instead the time the furnace will be on will just be shorter). As such, you can just pick a furnace that is roughly correct for your building size, rather than calculating all this out. The biggest criteria for this is thus going to be the price of the furnace (larger ones are often more costly, but not always). To calculate it out roughly:<br />
+depending on the type of room (some rooms are heated more than others), you need between 70 (0,07 kW) and 100 watt (0,1 kW) per m³ -for a completely uninsulated house, in temperate climates-. So just calculate how much m³ you have in your house and multiply this by a figure between 0,07 and 0,1. You then know how much kW your furnace needs to have (if you live in an uninsulated house, in a temperate region). Also make sure you have enough radiators to disperse this heat. The amount of heat each radiator is able to disperse is provided by manufacturers in watt.</p>
+
+<h2>Solar panel tilting</h2>
+<p>The efficiency of your PV or thermodynamic panel greatly depends on how you orientated and tilted your panel, depending on your location on earth.<br />
+The optimal orientation in the northern hemisphere is towards the (true) south<br />
+The optimal orientation in the southern hemisphere is towards the (true) north<br />
+You can calculate the <a href="http://www.solarpaneltilt.com/">optimal tilt</a> (for areas between 0° and 25° latitude) for the entire year by latitude <input type="text" id="spt1i1" class="input" value="" maxlength="2">° X 0,87 = <input type="text" id="spt1i2" class="input" value="" maxlength="2">°<br />
+You can calculate the optimal tilt (for areas between 25° and 50° latitude) for the entire year by latitude <input type="text" id="spt2i1" class="input" value="" maxlength="2">° X 0,76 + 3,1° = <input type="text" id="spt2i2" class="input" value="" maxlength="2">°<br />
+There is no formula for the optimal tilt (for areas between 50° and 75° latitude) for the entire year. You best use a solar tracker in this situation (that changes the tilt of the panel either once a day -to the angle of the sun's rays at noon-, or that changes the tilt continuously during the day, and perhaps even changes the orientation continuously too).<br />
+
+The optimal tilt (for areas between 25° and 50° latitude) for each season is :<br />
+- spring: latitude <input type="text" id="spt21i1" class="input" value="" maxlength="2">° X 0,98 - 2,3° = <input type="text" id="spt21i2" class="input" value="" maxlength="2">°<br />
+- summer: latitude <input type="text" id="spt22i1" class="input" value="" maxlength="2">° X 0,92 - 24,3° = <input type="text" id="spt22i2" class="input" value="" maxlength="2">°<br />
+- autumn: latitude <input type="text" id="spt23i1" class="input" value="" maxlength="2">° X 0,98 - 2,3° = <input type="text" id="spt23i2" class="input" value="" maxlength="2">°<br />
+- winter: latitude <input type="text" id="spt24i1" class="input" value="" maxlength="2">° X 0,89 + 24° = <input type="text" id="spt24i2" class="input" value="" maxlength="2">°<br />
+<br />
+The optimal tilt (for areas between 50° and 75° latitude) for each season is :<br />
+- spring: latitude <input type="text" id="spt31i1" class="input" value="" maxlength="2">° - 2,5° = <input type="text" id="spt31i2" class="input" value="" maxlength="2">°<br />
+- summer: latitude <input type="text" id="spt32i1" class="input" value="" maxlength="2">° X 0,9 - 23,5° = <input type="text" id="spt32i2" class="input" value="" maxlength="2">°<br />
+- autumn: latitude <input type="text" id="spt33i1" class="input" value="" maxlength="2">° - 2,5° = <input type="text" id="spt33i2" class="input" value="" maxlength="2">°<br />
+- winter: latitude <input type="text" id="spt34i1" class="input" value="" maxlength="2">° X 0,9 + 29° = <input type="text" id="spt34i2" class="input" value="" maxlength="2">°<br />
+<br />
+You should change your solar panel tilt, in the northern hemisphere, to respectively the spring, summer, autumn and winter angle on these dates: March 5, April 18, August 24, October 7<br />
+You should change your solar panel tilt, in the southern hemisphere, to respectively the spring, summer, autumn and winter angle on these dates: September 4, October 18, February 23, April 8</p>
+
+
+<h2>Appropriate glass tilting depending on your location</h2>
+<p>In temperate climates and subtropics (between 66°33' latitude and 23°27'), you require more heat/efficiency in winter and less efficiency in summer, so you need to tilt your windows appropriately. The closer to the poles, the closer the optimum summer/winter tilt will be to vertical (90°). The more towards the equator, the more it needs to be tilted towards the horizontal (0°). The tilt values should thus not be less than 47° (23°27' latitude + 23°30' earth tilt) or exceed 90° (66°33' latitude + 23°30' earth tilt).<br />
+The optimal tilts at different latitudes:<br />
+- 23°27' latitude: 46°27' window tilt<br />
+- 30° latitude: 53°30' window tilt<br />
+- 40° latitude: 63°30' window tilt<br />
+- 50° latitude: 73°30' window tilt<br />
+- 60° latitude: 83°30' window tilt<br />
+- 66°33' latitude: 90°03' window tilt<br />
+ </p>
+
+<!-- End content -->
+</div>
+
+<script type="text/javascript">
+
+  function format(val) {
+
+    return parseFloat(val).toFixed(3).replace(".", ",").replace(/0+$/, "").replace(/,$/, "");
+
+  }
+
+  // Energy storage using batteries
+  // 1
+  var esb1i1 = document.getElementById('esb1i1');
+  var esb1i2 = document.getElementById('esb1i2');
+  var esb1i3 = document.getElementById('esb1i3');
+  esb1i3.readOnly = true;
+  esb1i1.addEventListener('input', function() {
+    if (esb1i1.value.indexOf(',') != -1) esb1i1.value = format(esb1i1.value.replace(",", "."));
+    if (esb1i1.value.replace(",", ".") > 0 && esb1i2.value.replace(",", ".") > 0) {
+      esb1i3.value = format(esb1i1.value.replace(",", ".") / esb1i2.value.replace(",", "."));
+    }
+    esb1i1.value = esb1i1.value.replace(".", ",");
+  });
+  esb1i2.addEventListener('input', function() {
+    if (esb1i2.value.indexOf(',') != -1) esb1i2.value = format(esb1i2.value.replace(",", "."));
+    if (esb1i1.value.replace(",", ".") > 0 && esb1i2.value.replace(",", ".") > 0) {
+      esb1i3.value = format(esb1i1.value.replace(",", ".") / esb1i2.value.replace(",", "."));
+    }
+    esb1i2.value = esb1i2.value.replace(".", ",");
+  });
+  // 2
+  var esb2i1 = document.getElementById('esb2i1');
+  var esb2i2 = document.getElementById('esb2i2');
+  var esb2i3 = document.getElementById('esb2i3');
+  var esb2i4 = document.getElementById('esb2i4');
+  var esb2i5 = document.getElementById('esb2i5');
+  var esb2i6 = document.getElementById('esb2i6');
+  esb2i3.readOnly = true;
+  esb2i4.readOnly = true;
+  esb2i6.readOnly = true;
+  esb2i1.addEventListener('input', function() {
+    if (esb2i1.value.indexOf(',') != -1) esb2i1.value = format(esb2i1.value.replace(",", "."));
+    if (esb2i1.value.replace(",", ".") > 0 && esb2i2.value.replace(",", ".") > 0) {
+      esb2i3.value = format(esb2i1.value.replace(",", ".") * esb2i2.value.replace(",", "."));
+    }
+    if (esb2i3.value.replace(",", ".") > 0 && esb2i5.value.replace(",", ".") > 0 && esb2i5.value.replace(",", ".") <= 100) {
+      esb2i4.value = format(esb2i3.value.replace(",", ".") * (esb2i5.value.replace(",", ".") / 100));
+      esb2i6.value = format(parseFloat(esb2i3.value.replace(",", ".")) + parseFloat(esb2i4.value.replace(",", ".")));
+    }
+    esb2i1.value = esb2i1.value.replace(".", ",");
+  });
+  esb2i2.addEventListener('input', function() {
+    if (esb2i2.value.indexOf(',') != -1) esb2i2.value = format(esb2i2.value.replace(",", "."));
+    if (esb2i1.value.replace(",", ".") > 0 && esb2i2.value.replace(",", ".") > 0) {
+      esb2i3.value = format(esb2i1.value.replace(",", ".") * esb2i2.value.replace(",", "."));
+    }
+    if (esb2i3.value.replace(",", ".") > 0 && esb2i5.value.replace(",", ".") > 0 && esb2i5.value.replace(",", ".") <= 100) {
+      esb2i4.value = format(esb2i3.value.replace(",", ".") * (esb2i5.value.replace(",", ".") / 100));
+      esb2i6.value = format(parseFloat(esb2i3.value.replace(",", ".")) + parseFloat(esb2i4.value.replace(",", ".")));
+    }
+    esb2i2.value = esb2i2.value.replace(".", ",");
+  });
+  esb2i5.addEventListener('input', function() {
+    if (esb2i5.value.replace(",", ".") > 100) esb2i5.value = 100;
+    if (esb2i3.value.replace(",", ".") > 0 && esb2i5.value.replace(",", ".") > 0 && esb2i5.value.replace(",", ".") <= 100) {
+      esb2i4.value = format(esb2i3.value.replace(",", ".") * (esb2i5.value.replace(",", ".") / 100));
+      esb2i6.value = format(parseFloat(esb2i3.value.replace(",", ".")) + parseFloat(esb2i4.value.replace(",", ".")));
+    }
+    esb2i5.value = esb2i5.value.replace(".", ",");
+  });
+  // 3
+  var esb3i1 = document.getElementById('esb3i1');
+  var esb3i2 = document.getElementById('esb3i2');
+  var esb3i3 = document.getElementById('esb3i3');
+  var esb3i4 = document.getElementById('esb3i4');
+  esb3i4.readOnly = true;
+  esb3i1.addEventListener('input', function() {
+    if (esb3i1.value.indexOf(',') != -1) esb3i1.value = format(esb3i1.value.replace(",", "."));
+    if (esb3i1.value.replace(",", ".") > 0 && esb3i2.value.replace(",", ".") > 0 && esb3i3.value.replace(",", ".") > 0) {
+      esb3i4.value = format(esb3i1.value.replace(",", ".") / (esb3i2.value.replace(",", ".") * esb3i3.value.replace(",", ".")));
+    }
+    esb3i1.value = esb3i1.value.replace(".", ",");
+  });
+  esb3i2.addEventListener('input', function() {
+    if (esb3i2.value.indexOf(',') != -1) esb3i2.value = format(esb3i2.value.replace(",", "."));
+    if (esb3i1.value.replace(",", ".") > 0 && esb3i2.value.replace(",", ".") > 0 && esb3i3.value.replace(",", ".") > 0) {
+      esb3i4.value = format(esb3i1.value.replace(",", ".") / (esb3i2.value.replace(",", ".") * esb3i3.value.replace(",", ".")));
+    }
+    esb3i2.value = esb3i2.value.replace(".", ",");
+  });
+  esb3i3.addEventListener('input', function() {
+    if (esb3i3.value.indexOf(',') != -1) esb3i3.value = format(esb3i3.value.replace(",", "."));
+    if (esb3i1.value.replace(",", ".") > 0 && esb3i2.value.replace(",", ".") > 0 && esb3i3.value.replace(",", ".") > 0) {
+      esb3i4.value = format(esb3i1.value.replace(",", ".") / (esb3i2.value.replace(",", ".") * esb3i3.value.replace(",", ".")));
+    }
+    esb3i3.value = esb3i3.value.replace(".", ",");
+  });
+
+  // Battery charge time calculator
+  var btc1i1 = document.getElementById('btc1i1');
+  var btc1i2 = document.getElementById('btc1i2');
+  var btc1i3 = document.getElementById('btc1i3');
+  var btc1i4 = document.getElementById('btc1i4');
+  var btc1i5 = document.getElementById('btc1i5');
+  btc1i3.readOnly = true;
+  btc1i4.readOnly = true;
+  btc1i5.readOnly = true;
+  btc1i1.addEventListener('input', function() {
+    if (btc1i1.value.indexOf(',') != -1) btc1i1.value = format(btc1i1.value.replace(",", "."));
+    if (btc1i1.value.replace(",", ".") > 0 && btc1i2.value.replace(",", ".") > 0) {
+      btc1i3.value = format(btc1i1.value.replace(",", ".") * btc1i2.value.replace(",", "."));
+      btc1i4.value = btc1i3.value;
+      btc1i5.value = format(btc1i1.value.replace(",", ".") / btc1i3.value.replace(",", "."));
+    }
+    btc1i1.value = btc1i1.value.replace(".", ",");
+  });
+  btc1i2.addEventListener('input', function() {
+    if (btc1i2.value.indexOf(',') != -1) btc1i2.value = format(btc1i2.value.replace(",", "."));
+    if (btc1i1.value.replace(",", ".") > 0 && btc1i2.value.replace(",", ".") > 0) {
+      btc1i3.value = format(btc1i1.value.replace(",", ".") * btc1i2.value.replace(",", "."));
+      btc1i4.value = btc1i3.value;
+      btc1i5.value = format(btc1i1.value.replace(",", ".") / btc1i3.value.replace(",", "."));
+    }
+    btc1i2.value = btc1i2.value.replace(".", ",");
+  });
+
+  // Central heating components
+  var chc1i1 = document.getElementById('chc1i1');
+  var chc1i2 = document.getElementById('chc1i2');
+  chc1i2.readOnly = true;
+  chc1i1.addEventListener('input', function() {
+    if (chc1i1.value.replace(",", ".") > 0) {
+      chc1i2.value = format(chc1i1.value.replace(",", ".") * 1000);
+    }
+    chc1i1.value = chc1i1.value.replace(".", ",");
+  });
+
+  // Solar panel tilting
+  // 0 - 25
+  var spt1i1 = document.getElementById('spt1i1');
+  var spt1i2 = document.getElementById('spt1i2');
+  spt1i2.readOnly = true;
+  spt1i1.addEventListener('input', function() {
+    if (spt1i1.value.replace(",", ".") >= 0 && spt1i1.value.replace(",", ".") <= 25) {
+      spt1i1.value = spt1i1.value.replace(".", ",");
+      spt1i2.value = format(spt1i1.value.replace(",", ".") * 0.87);
+    }
+  });
+  // 25 - 50
+  var spt2i1 = document.getElementById('spt2i1');
+  var spt2i2 = document.getElementById('spt2i2');
+  var spt21i1 = document.getElementById('spt21i1');
+  var spt21i2 = document.getElementById('spt21i2');
+  var spt22i1 = document.getElementById('spt22i1');
+  var spt22i2 = document.getElementById('spt22i2');
+  var spt23i1 = document.getElementById('spt23i1');
+  var spt23i2 = document.getElementById('spt23i2');
+  var spt24i1 = document.getElementById('spt24i1');
+  var spt24i2 = document.getElementById('spt24i2');
+  spt2i2.readOnly = true;
+  spt21i2.readOnly = true;
+  spt22i2.readOnly = true;
+  spt23i2.readOnly = true;
+  spt24i2.readOnly = true;
+  spt2i1.addEventListener('input', function() {
+    if (spt2i1.value.replace(",", ".") >= 25 && spt2i1.value.replace(",", ".") <= 50) {
+      spt2i1.value = spt2i1.value.replace(".", ",");
+      spt21i1.value = spt2i1.value.replace(".", ",");
+      spt22i1.value = spt2i1.value.replace(".", ",");
+      spt23i1.value = spt2i1.value.replace(".", ",");
+      spt24i1.value = spt2i1.value.replace(".", ",");
+      spt2i2.value = format(spt2i1.value.replace(",", ".") * 0.76 + 3.1);
+      spt21i2.value = format(spt21i1.value.replace(",", ".") * 0.98 - 2.3);
+      spt22i2.value = format(spt22i1.value.replace(",", ".") * 0.92 - 24.3);
+      spt23i2.value = format(spt23i1.value.replace(",", ".") * 0.98 - 2.3);
+      spt24i2.value = format(spt24i1.value.replace(",", ".") * 0.89 + 24);
+    }
+  });
+  spt21i1.addEventListener('input', function() {
+    if (spt21i1.value.replace(",", ".") >= 25 && spt21i1.value.replace(",", ".") <= 50) {
+      spt2i1.value = spt21i1.value.replace(".", ",");
+      spt21i1.value = spt21i1.value.replace(".", ",");
+      spt22i1.value = spt21i1.value.replace(".", ",");
+      spt23i1.value = spt21i1.value.replace(".", ",");
+      spt24i1.value = spt21i1.value.replace(".", ",");
+      spt2i2.value = format(spt2i1.value.replace(",", ".") * 0.76 + 3.1);
+      spt21i2.value = format(spt21i1.value.replace(",", ".") * 0.98 - 2.3);
+      spt22i2.value = format(spt22i1.value.replace(",", ".") * 0.92 - 24.3);
+      spt23i2.value = format(spt23i1.value.replace(",", ".") * 0.98 - 2.3);
+      spt24i2.value = format(spt24i1.value.replace(",", ".") * 0.89 + 24);
+    }
+  });
+  spt22i1.addEventListener('input', function() {
+    if (spt22i1.value.replace(",", ".") >= 25 && spt22i1.value.replace(",", ".") <= 50) {
+      spt2i1.value = spt22i1.value.replace(".", ",");
+      spt21i1.value = spt22i1.value.replace(".", ",");
+      spt22i1.value = spt22i1.value.replace(".", ",");
+      spt23i1.value = spt22i1.value.replace(".", ",");
+      spt24i1.value = spt22i1.value.replace(".", ",");
+      spt2i2.value = format(spt2i1.value.replace(",", ".") * 0.76 + 3.1);
+      spt21i2.value = format(spt21i1.value.replace(",", ".") * 0.98 - 2.3);
+      spt22i2.value = format(spt22i1.value.replace(",", ".") * 0.92 - 24.3);
+      spt23i2.value = format(spt23i1.value.replace(",", ".") * 0.98 - 2.3);
+      spt24i2.value = format(spt24i1.value.replace(",", ".") * 0.89 + 24);
+    }
+  });
+  spt23i1.addEventListener('input', function() {
+    if (spt23i1.value.replace(",", ".") >= 25 && spt23i1.value.replace(",", ".") <= 50) {
+      spt2i1.value = spt23i1.value.replace(".", ",");
+      spt21i1.value = spt23i1.value.replace(".", ",");
+      spt22i1.value = spt23i1.value.replace(".", ",");
+      spt23i1.value = spt23i1.value.replace(".", ",");
+      spt24i1.value = spt23i1.value.replace(".", ",");
+      spt2i2.value = format(spt2i1.value.replace(",", ".") * 0.76 + 3.1);
+      spt21i2.value = format(spt21i1.value.replace(",", ".") * 0.98 - 2.3);
+      spt22i2.value = format(spt22i1.value.replace(",", ".") * 0.92 - 24.3);
+      spt23i2.value = format(spt23i1.value.replace(",", ".") * 0.98 - 2.3);
+      spt24i2.value = format(spt24i1.value.replace(",", ".") * 0.89 + 24);
+    }
+  });
+  spt24i1.addEventListener('input', function() {
+    if (spt24i1.value.replace(",", ".") >= 25 && spt24i1.value.replace(",", ".") <= 50) {
+      spt2i1.value = spt24i1.value.replace(".", ",");
+      spt21i1.value = spt24i1.value.replace(".", ",");
+      spt22i1.value = spt24i1.value.replace(".", ",");
+      spt23i1.value = spt24i1.value.replace(".", ",");
+      spt24i1.value = spt24i1.value.replace(".", ",");
+      spt2i2.value = format(spt2i1.value.replace(",", ".") * 0.76 + 3.1);
+      spt21i2.value = format(spt21i1.value.replace(",", ".") * 0.98 - 2.3);
+      spt22i2.value = format(spt22i1.value.replace(",", ".") * 0.92 - 24.3);
+      spt23i2.value = format(spt23i1.value.replace(",", ".") * 0.98 - 2.3);
+      spt24i2.value = format(spt24i1.value.replace(",", ".") * 0.89 + 24);
+    }
+  });
+  // 50 - 75
+  var spt31i1 = document.getElementById('spt31i1');
+  var spt31i2 = document.getElementById('spt31i2');
+  var spt32i1 = document.getElementById('spt32i1');
+  var spt32i2 = document.getElementById('spt32i2');
+  var spt33i1 = document.getElementById('spt33i1');
+  var spt33i2 = document.getElementById('spt33i2');
+  var spt34i1 = document.getElementById('spt34i1');
+  var spt34i2 = document.getElementById('spt34i2');
+  spt32i2.readOnly = true;
+  spt32i2.readOnly = true;
+  spt33i2.readOnly = true;
+  spt34i2.readOnly = true;
+  spt31i1.addEventListener('input', function() {
+    if (spt31i1.value.replace(",", ".") >= 50 && spt31i1.value.replace(",", ".") <= 75) {
+      spt31i1.value = spt31i1.value.replace(".", ",");
+      spt32i1.value = spt31i1.value.replace(".", ",");
+      spt33i1.value = spt31i1.value.replace(".", ",");
+      spt34i1.value = spt31i1.value.replace(".", ",");
+      spt31i2.value = format(spt31i1.value.replace(",", ".") - 2.5);
+      spt32i2.value = format(spt32i1.value.replace(",", ".") * 0.9 - 23.5);
+      spt33i2.value = format(spt33i1.value.replace(",", ".") - 2.5);
+      spt34i2.value = format(spt34i1.value.replace(",", ".") * 0.9 + 29);
+    }
+  });
+  spt32i1.addEventListener('input', function() {
+    if (spt32i1.value.replace(",", ".") >= 50 && spt32i1.value.replace(",", ".") <= 75) {
+      spt31i1.value = spt32i1.value.replace(".", ",");
+      spt32i1.value = spt32i1.value.replace(".", ",");
+      spt33i1.value = spt32i1.value.replace(".", ",");
+      spt34i1.value = spt32i1.value.replace(".", ",");
+      spt31i2.value = format(spt31i1.value.replace(",", ".") - 2.5);
+      spt32i2.value = format(spt32i1.value.replace(",", ".") * 0.9 - 23.5);
+      spt33i2.value = format(spt33i1.value.replace(",", ".") - 2.5);
+      spt34i2.value = format(spt34i1.value.replace(",", ".") * 0.9 + 29);
+    }
+  });
+  spt33i1.addEventListener('input', function() {
+    if (spt33i1.value.replace(",", ".") >= 50 && spt33i1.value.replace(",", ".") <= 75) {
+      spt31i1.value = spt33i1.value.replace(".", ",");
+      spt32i1.value = spt33i1.value.replace(".", ",");
+      spt33i1.value = spt33i1.value.replace(".", ",");
+      spt34i1.value = spt33i1.value.replace(".", ",");
+      spt31i2.value = format(spt31i1.value.replace(",", ".") - 2.5);
+      spt32i2.value = format(spt32i1.value.replace(",", ".") * 0.9 - 23.5);
+      spt33i2.value = format(spt33i1.value.replace(",", ".") - 2.5);
+      spt34i2.value = format(spt34i1.value.replace(",", ".") * 0.9 + 29);
+    }
+  });
+  spt34i1.addEventListener('input', function() {
+    if (spt34i1.value.replace(",", ".") >= 50 && spt34i1.value.replace(",", ".") <= 75) {
+      spt31i1.value = spt34i1.value.replace(".", ",");
+      spt32i1.value = spt34i1.value.replace(".", ",");
+      spt33i1.value = spt34i1.value.replace(".", ",");
+      spt34i1.value = spt34i1.value.replace(".", ",");
+      spt31i2.value = format(spt31i1.value.replace(",", ".") - 2.5);
+      spt32i2.value = format(spt32i1.value.replace(",", ".") * 0.9 - 23.5);
+      spt33i2.value = format(spt33i1.value.replace(",", ".") - 2.5);
+      spt34i2.value = format(spt34i1.value.replace(",", ".") * 0.9 + 29);
+    }
+  });
+
+</script>
+
+</body>
+</html>
